@@ -22,17 +22,23 @@
         android:text="Button" />
 
 <<<<<<< HEAD
+<<<<<<< HEAD
     <CheckBox
         android:id="@+id/checkBox"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="CheckBox" />
 =======
+=======
+>>>>>>> parent of b5771b6... ASD
     <TextView
         android:id="@+id/textView"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="TextView" />
+<<<<<<< HEAD
+>>>>>>> parent of b5771b6... ASD
+=======
 >>>>>>> parent of b5771b6... ASD
 
 </android.support.constraint.ConstraintLayout>
