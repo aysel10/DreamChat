@@ -74,7 +74,7 @@
                 android:textColorHint="@color/colorPrimary" />
 
             <Button
-                android:id="@+id/button2"
+                android:id="@+id/loginBtn"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
