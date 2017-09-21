@@ -4,6 +4,8 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="com.example.ayselkas.myapplication.MainActivity">
+    tools:context="com.example.ayselkas.myapplication.Fragments.RegisterActivityFragment"
+    tools:showIn="@layout/activity_register">
+
 
 </android.support.constraint.ConstraintLayout>
