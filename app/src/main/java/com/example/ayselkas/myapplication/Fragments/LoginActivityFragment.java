@@ -29,7 +29,7 @@ public class LoginActivityFragment extends Fragment {
         View view =  inflater.inflate(R.layout.fragment_login, container, false);
         emailEditText =  view.findViewById(R.id.emailEditText);
         passwordEditText = view.findViewById(R.id.passwordEditText);
-        loginButton = view.findViewById(R.id.loginBtn);
+        loginButton = view.findViewById(R.id.loginButton);
         loginButton.setOnClickListener(buttonListener);
         return view;
     }
