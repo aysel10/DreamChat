@@ -2,8 +2,11 @@
 <android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/loginConstraintLayout"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/backgroung_login"
+
     tools:context="com.example.ayselkas.myapplication.Fragments.LoginActivityFragment"
     tools:showIn="@layout/activity_login">
 
@@ -28,7 +31,7 @@
         tools:layout_constraintTop_creator="1">
 
         <ImageView
-            android:id="@+id/imageView"
+            android:id="@+id/iconImageView"
             android:layout_width="150dp"
             android:layout_height="match_parent"
             android:layout_gravity="center_vertical|center_horizontal"
@@ -42,45 +45,44 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_weight="2"
-            android:gravity="center_vertical"
             android:orientation="vertical">
 
             <EditText
                 android:id="@+id/emailEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:background="@android:color/black"
-                android:backgroundTint="@android:color/darker_gray"
+                android:drawableLeft="@drawable/ic_email_black_24dp"
                 android:ems="10"
-                android:hint="@string/user_name"
+                android:hint="@string/user_email"
                 android:inputType="textPersonName"
+                android:maxLines="1"
                 android:padding="10dp"
                 android:textColor="@android:color/background_light"
-                android:textColorHint="@color/colorPrimary" />
+                android:textColorHint="@android:color/black" />
 
             <EditText
                 android:id="@+id/passwordEditText"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@android:color/holo_blue_dark"
-                android:backgroundTint="@android:color/darker_gray"
+                android:drawableLeft="@drawable/ic_lock_black_24dp"
                 android:ems="10"
                 android:hint="@string/password"
                 android:inputType="textPassword"
                 android:padding="10dp"
                 android:password="true"
-                android:textColor="@android:color/background_light"
-                android:textColorHint="@color/colorPrimary" />
+                android:textColor="@color/colorPrimary"
+                android:textColorHint="@android:color/black" />
 
             <Button
-                android:id="@+id/button2"
-                android:layout_width="100dp"
+                android:id="@+id/loginButton"
+                android:layout_width="150dp"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center_horizontal"
                 android:layout_marginTop="10dp"
-                android:background="@color/colorPrimary"
-                android:text="OK" />
+                android:background="@drawable/round_button"
+                android:text="Login"
+                android:textColor="@color/colorAccent" />
         </LinearLayout>
 
     </LinearLayout>
