@@ -32,6 +32,10 @@
                 android:name="android.support.PARENT_ACTIVITY"
                 android:value="com.example.ayselkas.myapplication.Activity.LoginActivity" />
         </activity>
+        <activity
+            android:name=".Activity.UserListingActivity"
+            android:label="@string/title_activity_chat"
+            android:theme="@style/AppTheme.NoActionBar"></activity>
     </application>
 
 </manifest>
