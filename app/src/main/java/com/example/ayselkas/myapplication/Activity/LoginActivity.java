@@ -1,5 +1,7 @@
 package com.example.ayselkas.myapplication.Activity;
 
+import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -18,6 +20,11 @@ public class LoginActivity extends AppCompatActivity {
 //        Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
 //        setSupportActionBar(toolbar);
 
+
+    }
+    public static void startActivity(Context context){
+        Intent intent=new Intent(context,LoginActivity.class);
+        context.startActivity(intent);
 
     }
 
