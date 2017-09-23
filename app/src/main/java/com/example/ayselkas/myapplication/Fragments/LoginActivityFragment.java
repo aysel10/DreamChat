@@ -67,7 +67,7 @@ public class LoginActivityFragment extends Fragment {
     private void login(){
         String email = emailEditText.getText().toString();
         String password = passwordEditText.getText().toString();
-        login = new LoginSystem(getActivity(),email, password);
+//        login = new LoginSystem(getActivity(),email, password);
          FirebaseAuth.getInstance()
                 .signInWithEmailAndPassword(email,password)
                 .addOnCompleteListener(getActivity(), new OnCompleteListener<AuthResult>() {

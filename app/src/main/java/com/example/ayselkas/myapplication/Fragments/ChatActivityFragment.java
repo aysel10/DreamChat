@@ -11,14 +11,14 @@ import com.example.ayselkas.myapplication.R;
 /**
  * A placeholder fragment containing a simple view.
  */
-public class UserListingFragment extends Fragment {
+public class ChatActivityFragment extends Fragment {
 
-    public UserListingFragment() {
+    public ChatActivityFragment() {
     }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        return inflater.inflate(R.layout.fragment_user_listing, container, false);
+        return inflater.inflate(R.layout.fragment_chat, container, false);
     }
 }
