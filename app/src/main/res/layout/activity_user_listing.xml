@@ -12,6 +12,15 @@
         android:theme="@style/AppTheme.AppBarOverlay">
 
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/mainToolbar"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:theme="?attr/actionBarTheme"
+            app:title="@string/app_name" />
     </android.support.design.widget.AppBarLayout>
 
     <include layout="@layout/content_user_listing" />

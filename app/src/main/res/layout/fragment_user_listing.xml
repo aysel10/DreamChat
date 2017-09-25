@@ -15,10 +15,11 @@
         tools:layout_editor_absoluteY="8dp">
 
         <ListView
-            tools:layout_editor_absoluteX="8dp"
-            tools:layout_editor_absoluteY="8dp"
+            android:id="@+id/userListingView"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content" />
+            android:layout_height="wrap_content"
+            tools:layout_editor_absoluteX="8dp"
+            tools:layout_editor_absoluteY="8dp" />
     </RelativeLayout>
 
 </android.support.constraint.ConstraintLayout>
