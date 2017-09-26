@@ -1,2 +1,2 @@
 # DreamHome
-My home App
+Android Chat on Java with using Firebase
