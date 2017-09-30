@@ -9,6 +9,7 @@ public class User {
     public String uid;
     public String name;
     public String photoUrl;
+    public String firebaseToken;
     public User(){
     }
 
@@ -17,6 +18,14 @@ public class User {
         this.uid = uid;
         this.name = name;
 
+    }
+
+    public User(String email, String uid, String name, String photoUrl, String firebaseToken) {
+        this.email = email;
+        this.uid = uid;
+        this.name = name;
+        this.photoUrl = photoUrl;
+        this.firebaseToken = firebaseToken;
     }
 
     public String getEmail() {

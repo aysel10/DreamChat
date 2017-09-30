@@ -33,6 +33,7 @@ public class RegisterActivityFragment extends Fragment {
     private EditText registerPassword;
     private Button registerButton;
     private String email;
+    private String firebaseToken;
     private String password;
     private String name;
 
@@ -61,6 +62,8 @@ public class RegisterActivityFragment extends Fragment {
         email=registerEmail.getText().toString();
         password=registerPassword.getText().toString();
         name=registerName.getText().toString();
+
+
 
         FirebaseAuth auth=FirebaseAuth.getInstance();
 

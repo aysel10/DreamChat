@@ -83,7 +83,8 @@ public class UserListingFragment extends Fragment {
         usersListing.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int position, long l) {
-                Log.e("On item Clicked", userList.toString());
+                Log.e("On item Clicked", userList.get(position).email);
+                Log.e("On item Clicked", userList.get(position).uid);
                 ChatActivity.startActivity(getActivity(),
                        userList.get(position).email,
                         userList.get(position).uid);
