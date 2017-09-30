@@ -15,6 +15,8 @@ import android.widget.Toast;
 import com.example.ayselkas.myapplication.Activity.LoginActivity;
 import com.example.ayselkas.myapplication.Activity.RegisterActivity;
 import com.example.ayselkas.myapplication.Activity.UserListingActivity;
+import com.example.ayselkas.myapplication.LocalStorage.Constants;
+import com.example.ayselkas.myapplication.LocalStorage.sharedPreferences;
 import com.example.ayselkas.myapplication.LogicImplementation.LoginSystem;
 import com.example.ayselkas.myapplication.R;
 import com.google.android.gms.tasks.OnCompleteListener;
@@ -22,6 +24,7 @@ import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.AuthResult;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
+import com.google.firebase.database.FirebaseDatabase;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -75,6 +78,9 @@ public class LoginActivityFragment extends Fragment {
                     public void onComplete(@NonNull Task<AuthResult> task) {
 
                         if(task.isSuccessful()) {
+                            updateToken(task.getResult().getUser().getUid(),
+                                    new sharedPreferences(getActivity().getApplicationContext())
+                                            .getPreference(Constants.ARG_FIREBASE_TOKEN));
                            onLoginSuccess();
                        }else{
                           onLoginFail();
@@ -88,6 +94,7 @@ public class LoginActivityFragment extends Fragment {
         if(FirebaseAuth.getInstance().getCurrentUser().isEmailVerified()) {
             UserListingActivity.startActivity(getContext());
 
+
         }else{
             onLoginFail();
         }
@@ -98,6 +105,14 @@ public class LoginActivityFragment extends Fragment {
                 .show();
     }
 
+    private void updateToken(String uid, String token) {
+        FirebaseDatabase.getInstance()
+                .getReference()
+                .child(Constants.FIREBASE_DB_USERS)
+                .child(uid)
+                .child(Constants.FIREBASE_USER_TOKEN)
+                .setValue(token);
+    }
 
 
 
