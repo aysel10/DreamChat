@@ -87,7 +87,8 @@ public class UserListingFragment extends Fragment {
                 Log.e("On item Clicked", userList.get(position).uid);
                 ChatActivity.startActivity(getActivity(),
                        userList.get(position).email,
-                        userList.get(position).uid);
+                        userList.get(position).uid,
+                        userList.get(position).firebaseToken);
 
             }
         });

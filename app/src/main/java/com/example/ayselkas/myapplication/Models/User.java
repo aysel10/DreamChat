@@ -43,4 +43,8 @@ public class User {
     public String getPhotoUrl() {
         return photoUrl;
     }
+
+    public String getFirebaseToken() {
+        return firebaseToken;
+    }
 }
