@@ -45,7 +45,9 @@ public class LoginActivityFragment extends Fragment {
                              Bundle savedInstanceState) {
         View view =  inflater.inflate(R.layout.fragment_login, container, false);
         emailEditText =  view.findViewById(R.id.emailEditText);
+        emailEditText.setText("aysel2920@gmail.com");
         passwordEditText = view.findViewById(R.id.passwordEditText);
+        passwordEditText.setText("aysel10");
         loginButton = view.findViewById(R.id.loginButton);
         loginButton.setOnClickListener(buttonListener);
         createAccount= (TextView) view.findViewById(R.id.createAccount);

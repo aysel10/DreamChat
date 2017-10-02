@@ -222,6 +222,7 @@ public class ChatActivityFragment extends Fragment {
                                 @Override
                                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                     Chat chat =dataSnapshot.getValue((Chat.class));
+                                    onGetMessageSuccess(chat);
                                 }
 
                                 @Override
@@ -257,15 +258,15 @@ public class ChatActivityFragment extends Fragment {
     }
 
 
-
-
     public void onGetMessageSuccess(Chat chat){
-        if(myChatRecyclerAdapter==null||myChatRecyclerAdapter.getItemCount()==0){
+        if(myChatRecyclerAdapter==null){
             myChatRecyclerAdapter=new ChatRecyclerAdapter(new ArrayList<Chat>());
             myRecyclerViewChat.setAdapter(myChatRecyclerAdapter);
         }
         myChatRecyclerAdapter.add(chat);
         myRecyclerViewChat.smoothScrollToPosition(myChatRecyclerAdapter.getItemCount()-1);
+
+//        Log.e("Number", Integer.toString(myChatRecyclerAdapter.getItemCount()));
 
     }
     public void onSendMessageSuccess(){

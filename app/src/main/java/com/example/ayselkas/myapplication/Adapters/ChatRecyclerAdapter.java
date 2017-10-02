@@ -1,8 +1,10 @@
 package com.example.ayselkas.myapplication.Adapters;
 
 import android.content.Context;
+import android.content.Intent;
 import android.support.v7.widget.RecyclerView;
 import android.text.TextUtils;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -27,12 +29,15 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
     public ChatRecyclerAdapter(List<Chat> myChat) {
         this.myChat = myChat;
+        setHasStableIds(true);
+
     }
 
     public void add(Chat chat){
         myChat.add(chat);
         notifyItemInserted(myChat.size()-1);
     }
+
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
@@ -79,10 +84,19 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     }
 
     @Override
+    public long getItemId(int position) {
+        return position;
+
+    }
+
+    @Override
     public int getItemCount() {
         if(myChat!=null){
+            Log.e("if",Integer.toString(myChat.size()));
+
             return  myChat.size();
         }
+        Log.e("return 0",Integer.toString(myChat.size()));
         return 0;
     }
 
@@ -103,4 +117,5 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
             txtChatMessage=(TextView) itemView.findViewById(R.id.chatOtherTextView);
         }
     }
+
 }
