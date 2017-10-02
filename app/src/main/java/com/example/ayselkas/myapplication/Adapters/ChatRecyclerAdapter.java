@@ -6,6 +6,7 @@ import android.text.TextUtils;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.EditText;
 import android.widget.TextView;
 
 import com.example.ayselkas.myapplication.Models.Chat;
@@ -90,7 +91,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public MyChatViewHolder(View itemView){
             super(itemView);
-            txtChatMessage=(TextView)itemView.findViewById(R.id.typeText);
+            txtChatMessage=(TextView)itemView.findViewById(R.id.chatMineTextView);
         }
 
     }
@@ -99,7 +100,7 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
 
         public OtherChatViewHolder(View itemView){
             super(itemView);
-            txtChatMessage=(TextView) itemView.findViewById(R.id.typeText);
+            txtChatMessage=(TextView) itemView.findViewById(R.id.chatOtherTextView);
         }
     }
 }

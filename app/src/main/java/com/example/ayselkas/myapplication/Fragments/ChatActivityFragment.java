@@ -118,7 +118,9 @@ public class ChatActivityFragment extends Fragment {
         myProgressDialog.setTitle("LOading");
         myProgressDialog.setMessage("Please Wait");
         myProgressDialog.setIndeterminate(true);
-//
+       getMessageFromFirebaseUser(FirebaseAuth.getInstance().getCurrentUser().getUid(),
+               getActivity().getIntent().getExtras().getString(Constants.ARG_RECEIVER_UID));
+
 //        mChatPresenter.getMessage(FirebaseAuth.getInstance().getCurrentUser().getUid(),
 //                getArguments().getString(Constants.ARG_RECEIVER_UID));
     }
@@ -138,6 +140,7 @@ public class ChatActivityFragment extends Fragment {
                 System.currentTimeMillis());
         sendMessageToFirebaseUser(chat);
     }
+
     public void sendMessageToFirebaseUser( final Chat chat) {
         final String room_type_1 = chat.senderUid + "_" + chat.receiverUid;
         final String room_type_2 = chat.receiverUid + "_" + chat.senderUid;
@@ -164,7 +167,7 @@ public class ChatActivityFragment extends Fragment {
 //                        chat.senderUid,
 //                        new SharedPrefUtil(context).getString(Constants.ARG_FIREBASE_TOKEN),
 //                        receiverFirebaseToken);
-//                mOnSendMessageListener.onSendMessageSuccess();
+                    onSendMessageSuccess();
             }
 
             @Override
@@ -179,6 +182,7 @@ public class ChatActivityFragment extends Fragment {
 
         databaseReference.child(Constants.ARG_CHAT_ROOMS).getRef()
                 .addListenerForSingleValueEvent(new ValueEventListener() {
+
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild(room_type_1)) {
@@ -189,7 +193,7 @@ public class ChatActivityFragment extends Fragment {
                                 @Override
                                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                     Chat chat = dataSnapshot.getValue(Chat.class);
-
+                                    onGetMessageSuccess(chat);
                                 }
 
                                 @Override
@@ -250,6 +254,22 @@ public class ChatActivityFragment extends Fragment {
 
                     }
                 });
+    }
+
+
+
+
+    public void onGetMessageSuccess(Chat chat){
+        if(myChatRecyclerAdapter==null||myChatRecyclerAdapter.getItemCount()==0){
+            myChatRecyclerAdapter=new ChatRecyclerAdapter(new ArrayList<Chat>());
+            myRecyclerViewChat.setAdapter(myChatRecyclerAdapter);
+        }
+        myChatRecyclerAdapter.add(chat);
+        myRecyclerViewChat.smoothScrollToPosition(myChatRecyclerAdapter.getItemCount()-1);
+
+    }
+    public void onSendMessageSuccess(){
+        myTxtMessage.setText("");
     }
 
 }
