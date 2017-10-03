@@ -4,26 +4,25 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/fragment_chat"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="com.example.ayselkas.myapplication.Fragments.ChatActivityFragment"
-    tools:showIn="@layout/activity_chat">
+    android:layout_height="match_parent">
 
 
     <android.support.v7.widget.RecyclerView
         android:id="@+id/chatRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_above="@+id/typeText"
-        app:layoutManager="LinearLayoutManager"/>
+        app:layoutManager="LinearLayoutManager"
+        android:layout_above="@+id/sendMessageButton"
+        android:layout_alignParentStart="true" />
 
     <EditText
         android:id="@+id/typeText"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
+        android:layout_margin="8dp"
         android:background="@drawable/send_box"
         android:ems="10"
-        android:layout_margin="8dp"
         android:hint="Type a message..."
         android:imeOptions="actionSend"
         android:inputType="text"

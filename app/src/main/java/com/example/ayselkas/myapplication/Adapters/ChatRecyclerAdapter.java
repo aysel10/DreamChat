@@ -23,14 +23,16 @@ public class ChatRecyclerAdapter extends RecyclerView.Adapter<RecyclerView.ViewH
     private static final int VIEW_TYPE_ME=1;
     private static final int VIEW_TYPE_OTHER=2;
 
-    private List<Chat>myChat;
+    public List<Chat>myChat;
+
+
 
     public ChatRecyclerAdapter(List<Chat> myChat) {
         this.myChat = myChat;
     }
 
     public void add(Chat chat){
-        myChat.add(chat);
+        this.myChat.add(chat);
         notifyItemInserted(myChat.size()-1);
     }
 
