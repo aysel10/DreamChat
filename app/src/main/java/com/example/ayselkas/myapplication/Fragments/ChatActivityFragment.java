@@ -36,6 +36,7 @@ import com.google.firebase.database.ValueEventListener;
 import org.greenrobot.eventbus.EventBus;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static com.google.android.gms.internal.zzs.TAG;
 
@@ -46,10 +47,10 @@ import static com.google.android.gms.internal.zzs.TAG;
 public class ChatActivityFragment extends Fragment {
     private RecyclerView myRecyclerViewChat;
     private EditText myTxtMessage;
-    private ProgressDialog myProgressDialog; // progress bar can be used instead
+    //private ProgressDialog myProgressDialog; // progress bar can be used instead
     private ChatRecyclerAdapter myChatRecyclerAdapter;
     private Button sendButton;
-    private Chat chat;
+    List<Chat> adapterList = new ArrayList<>();
 
     ///////////
 
@@ -73,7 +74,7 @@ public class ChatActivityFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View fragmentView = inflater.inflate(R.layout.fragment_chat, container, false);
-        sendButton=(Button) fragmentView.findViewById(R.id.sendMessageButton);
+        sendButton= fragmentView.findViewById(R.id.sendMessageButton);
         sendButton.setEnabled(false);
         sendButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -91,13 +92,16 @@ public class ChatActivityFragment extends Fragment {
         myTxtMessage.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
-
             }
 
             @Override
             public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
                 if(charSequence.toString().trim().length() > 0) {
-                    sendButton.setEnabled(true);}
+                    sendButton.setEnabled(true);
+                } else {
+                    sendButton.setEnabled(false);
+                }
+
             }
 
             @Override
@@ -114,11 +118,11 @@ public class ChatActivityFragment extends Fragment {
     }
 
     private void init() {
-        myProgressDialog = new ProgressDialog(getActivity());
-        myProgressDialog.setTitle("LOading");
-        myProgressDialog.setMessage("Please Wait");
-        myProgressDialog.setIndeterminate(true);
-       getMessageFromFirebaseUser(FirebaseAuth.getInstance().getCurrentUser().getUid(),
+//        myProgressDialog = new ProgressDialog(getActivity());
+//        myProgressDialog.setTitle("LOading");
+//        myProgressDialog.setMessage("Please Wait");
+//        myProgressDialog.setIndeterminate(true);
+        getMessageFromFirebaseUser(FirebaseAuth.getInstance().getCurrentUser().getUid(),
                getActivity().getIntent().getExtras().getString(Constants.ARG_RECEIVER_UID));
 
 //        mChatPresenter.getMessage(FirebaseAuth.getInstance().getCurrentUser().getUid(),
@@ -182,14 +186,14 @@ public class ChatActivityFragment extends Fragment {
 
         databaseReference.child(Constants.ARG_CHAT_ROOMS).getRef()
                 .addListenerForSingleValueEvent(new ValueEventListener() {
-
                     @Override
                     public void onDataChange(DataSnapshot dataSnapshot) {
                         if(dataSnapshot.hasChild(room_type_1)) {
                             FirebaseDatabase.getInstance()
                                     .getReference()
                                     .child(Constants.ARG_CHAT_ROOMS)
-                                    .child(room_type_1).addChildEventListener(new ChildEventListener() {
+                                    .child(room_type_1)
+                                    .addChildEventListener(new ChildEventListener() {
                                 @Override
                                 public void onChildAdded(DataSnapshot dataSnapshot, String s) {
                                     Chat chat = dataSnapshot.getValue(Chat.class);
@@ -258,16 +262,17 @@ public class ChatActivityFragment extends Fragment {
     }
 
 
+
+
     public void onGetMessageSuccess(Chat chat){
         if(myChatRecyclerAdapter==null){
-            myChatRecyclerAdapter=new ChatRecyclerAdapter(new ArrayList<Chat>());
+            myChatRecyclerAdapter=new ChatRecyclerAdapter(adapterList);
             myRecyclerViewChat.setAdapter(myChatRecyclerAdapter);
         }
         myChatRecyclerAdapter.add(chat);
         myRecyclerViewChat.smoothScrollToPosition(myChatRecyclerAdapter.getItemCount()-1);
 
-//        Log.e("Number", Integer.toString(myChatRecyclerAdapter.getItemCount()));
-
+//     Log.e("Adapters Data",   myChatRecyclerAdapter.myChat.toString());
     }
     public void onSendMessageSuccess(){
         myTxtMessage.setText("");
