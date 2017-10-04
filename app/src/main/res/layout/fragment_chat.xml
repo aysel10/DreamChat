@@ -7,33 +7,52 @@
     android:layout_height="match_parent">
 
 
-    <android.support.v7.widget.RecyclerView
-        android:id="@+id/chatRecyclerView"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        app:layoutManager="LinearLayoutManager"
-        android:layout_above="@+id/sendMessageButton"
-        android:layout_alignParentStart="true" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/typeText"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_margin="8dp"
-        android:background="@drawable/send_box"
-        android:ems="10"
-        android:hint="Type a message..."
-        android:imeOptions="actionSend"
-        android:inputType="text"
-        android:padding="8dp" />
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/chatRecyclerView"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_above="@+id/sendMessageButton"
+            android:layout_alignParentStart="true"
+            android:layout_weight="1"
+            app:layoutManager="LinearLayoutManager" />
 
-    <Button
-        android:id="@+id/sendMessageButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true"
-        android:layout_alignParentRight="true"
-        android:text="send" />
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="76dp"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentEnd="false"
+            android:orientation="horizontal">
+
+            <EditText
+                android:id="@+id/typeText"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="bottom"
+                android:layout_margin="8dp"
+                android:layout_weight="1"
+                android:background="@drawable/send_box"
+                android:ems="10"
+                android:hint="Type a message..."
+                android:imeOptions="actionSend"
+                android:inputType="text"
+                android:padding="8dp" />
+
+            <Button
+                android:id="@+id/sendMessageButton"
+                android:layout_width="59dp"
+                android:layout_height="wrap_content"
+                android:layout_alignParentBottom="true"
+                android:layout_alignParentRight="false"
+                android:layout_gravity="bottom|center_vertical"
+                android:layout_marginBottom="8dp"
+                android:layout_marginRight="5dp"
+                android:background="@drawable/ic_chevron_right_black_24dp" />
+        </LinearLayout>
+    </LinearLayout>
 
 </RelativeLayout>

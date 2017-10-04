@@ -18,8 +18,8 @@
         android:background="@drawable/message_background"
         android:gravity="center"
 
-        android:padding="8dp"
+        android:padding="10dp"
         android:text="TextView"
-        android:textAppearance="?android:attr/textAppearanceLarge"
-        android:textStyle="bold" />
+        android:textAppearance="@android:style/TextAppearance.Material.Small"
+        android:textColor="@color/colorPrimaryDark" />
 </RelativeLayout>

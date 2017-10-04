@@ -6,7 +6,12 @@
     <color name="gradient_start">#ff3300</color>
     <color name="gradient_end">#000000</color>
     <color name="message">#ef5a28</color>
-<color name="message2">#dbc7c0</color>
+
+    <color name="red">#EE1818</color>
+    <color name="yellow2">#FFF402</color>
+    <color name="orange">#FF9B00</color>
+    <color name="white">#FFFFFF</color>
+
 
     <color name="yellow">#ffdf51</color>
 </resources>
