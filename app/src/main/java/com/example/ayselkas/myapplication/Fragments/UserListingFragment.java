@@ -88,6 +88,7 @@ public class UserListingFragment extends Fragment {
                 ChatActivity.startActivity(getActivity(),
                        userList.get(position).email,
                         userList.get(position).uid,
+                        userList.get(position).name,
                         userList.get(position).firebaseToken);
 
             }

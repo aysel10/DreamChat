@@ -2,9 +2,29 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     tools:context="com.example.ayselkas.myapplication.Activity.UserListingActivity">
+
+
+
     <item
-        android:id="@+id/action_settings"
+        android:id="@+id/action_change_avatar"
         android:orderInCategory="100"
-        android:title="@string/action_settings"
-        app:showAsAction="never" />
+        android:title="Change Avatar"
+        android:icon="@drawable/ic_change_avatar_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_change_nickname"
+        android:orderInCategory="100"
+        android:title="Change NickName"
+        android:icon="@drawable/ic_change_nickname_24dp"
+        app:showAsAction="ifRoom" />
+
+    <item
+        android:id="@+id/action_exit"
+        android:orderInCategory="100"
+        android:title="Exit"
+        android:icon="@drawable/ic_exit_to_app_24dp"
+        app:showAsAction="ifRoom" />
+
+
 </menu>

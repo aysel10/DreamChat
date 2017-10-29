@@ -39,7 +39,14 @@
         <activity
             android:name=".Activity.ChatActivity"
             android:label="@string/title_activity_chat"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar"
+            android:parentActivityName="com.example.ayselkas.myapplication.Activity.UserListingActivity" >
+            <!-- Parent activity meta-data to support 4.0 and lower -->
+            <meta-data
+                android:name="android.support.PARENT_ACTIVITY"
+                android:value="com.example.ayselkas.myapplication.Activity.UserListingActivity" />
+
+        </activity>
     </application>
 
 </manifest>

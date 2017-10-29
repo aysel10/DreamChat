@@ -24,4 +24,5 @@
     <string name="sign_up">Sign Up</string>
     <string name="create_account"><u>Create Account</u></string>
     <string name="title_activity_chat">ChatActivity</string>
+    <string name="action_lagout_message">Do you want to logout?</string>
 </resources>
